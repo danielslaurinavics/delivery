@@ -17,7 +17,7 @@ return [
 	'edittt' => 'Rediģēt ēdienu',
 	'back' => 'Atpakaļ',
 	'delette' => 'Dzēst elementu :name',
-	'sure_to_delete' => 'Vai TIEŠĀM vēlies dzēst elementu :name ? Šo darību vairs nevarēs atgriezt atpakaļ!',
+	'sure_to_delete' => 'Vai TIEŠĀM vēlies dzēst elementu :name? Šo darību vairs nevarēs atgriezt atpakaļ!',
 	'yes' => 'Jā',
 	'no' => 'Nē',
 ];

@@ -15,6 +15,7 @@ class Order extends Model
         'made_by',
         'dish_id',
         'courier_id',
+		'address',
         'status',
     ];
 
@@ -36,5 +37,10 @@ class Order extends Model
     public function courier()
     {
         return $this->belongsTo(User::class, 'courier_id');
+    }
+	
+	public function rating()
+    {
+        return $this->hasOne(Rating::class, 'order_id');
     }
 }

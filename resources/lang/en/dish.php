@@ -16,4 +16,8 @@ return [
 	'editt' => 'Editing dish :name',
 	'edittt' => 'Edit dish',
 	'back' => 'Back',
+	'delette' => 'Delete dish :name',
+	'sure_to_delete' => 'Are you SURE to delete dish named :name? This action cannot be undone!',
+	'yes' => 'Yes',
+	'no' => 'No',
 ];

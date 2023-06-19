@@ -126,6 +126,7 @@ class DatabaseSeeder extends Seeder
 			'made_by' => 1,
 			'dish_id' => 3,
 			'courier_id' => 4,
+			'address' => 'Parka iela 27, Koknese',
 			'status' => 'completed',
 		]);
 		
@@ -134,6 +135,7 @@ class DatabaseSeeder extends Seeder
 			'made_by' => 1,
 			'dish_id' => 6,
 			'courier_id' => 3,
+			'address' => 'Dzeņu iela 4a, Koknese',
 			'status' => 'completed',
 		]);
 		
@@ -142,6 +144,7 @@ class DatabaseSeeder extends Seeder
 			'made_by' => 2,
 			'dish_id' => 1,
 			'courier_id' => 4,
+			'address' => '1905.gada iela 25, Koknese',
 			'status' => 'completed',
 		]);
 		
@@ -150,6 +153,7 @@ class DatabaseSeeder extends Seeder
 			'made_by' => 2,
 			'dish_id' => 5,
 			'courier_id' => 5,
+			'address' => 'Daugavas iela 6, Koknese',
 			'status' => 'completed',
 		]);
 		
@@ -158,6 +162,7 @@ class DatabaseSeeder extends Seeder
 			'made_by' => 1,
 			'dish_id' => 6,
 			'courier_id' => 5,
+			'address' => 'Meliatoru iela 1, Koknese',
 			'status' => 'completed',
 		]);
 		
@@ -166,6 +171,7 @@ class DatabaseSeeder extends Seeder
 			'made_by' => 1,
 			'dish_id' => 2,
 			'courier_id' => 4,
+			'address' => 'Hanzas iela 3, Koknese',
 			'status' => 'completed',
 		]);
 		
@@ -174,6 +180,7 @@ class DatabaseSeeder extends Seeder
 			'made_by' => 1,
 			'dish_id' => 6,
 			'courier_id' => 4,
+			'address' => 'Vērenes iela 15, Koknese',
 			'status' => 'completed',
 		]);
 		
@@ -182,6 +189,7 @@ class DatabaseSeeder extends Seeder
 			'made_by' => 2,
 			'dish_id' => 5,
 			'courier_id' => 4,
+			'address' => 'Lāčplēša iela 5, Koknese',
 			'status' => 'completed',
 		]);
 		
@@ -190,6 +198,7 @@ class DatabaseSeeder extends Seeder
 			'made_by' => 2,
 			'dish_id' => 4,
 			'courier_id' => 5,
+			'address' => 'Blaumaņa iela 1, Koknese',
 			'status' => 'completed',
 		]);
 		
@@ -198,6 +207,7 @@ class DatabaseSeeder extends Seeder
 			'made_by' => 1,
 			'dish_id' => 6,
 			'courier_id' => 5,
+			'address' => 'Sporta iela 11, Koknese',
 			'status' => 'completed',
 		]);
 		

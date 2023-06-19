@@ -22,6 +22,7 @@ return new class extends Migration
 			$table->foreign('dish_id')->references('id')->on('dishes')->onDelete('CASCADE');
 			$table->unsignedBigInteger('courier_id');
 			$table->foreign('courier_id')->references('id')->on('users')->onDelete('CASCADE');
+			$table->string('address');
 			$table->string('status');
             $table->timestamps();
         });
