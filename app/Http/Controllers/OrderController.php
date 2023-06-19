@@ -31,4 +31,30 @@ class OrderController extends Controller
 		'ratings' => $ratings,
 		]);
 	}
+	
+	public function create(string $rid, string $did)
+	{
+		$restaurant = Restaurant::findOrFail($rid);
+		$dish = Dish::findOrFail($did);
+		return view('create_order', compact('restaurant', 'dish'));
+	}
+	
+	public function store(Request $request)
+	{
+		$request->validate([
+			'address' => 'required',
+		], [
+			'address' => __('order.addresserr'),
+		]);
+		
+		$order = new Order();
+		$order->ordered_by = auth()->user()->id;
+		$order->made_by = $request->input('restaurant-id');
+		$order->dish_id = $request->input('dish-id');
+		$order->address = $request->input('address');
+		$order->save();
+		
+		return redirect()->route('orders.index');		
+	}
+	
 }

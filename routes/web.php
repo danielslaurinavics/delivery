@@ -33,4 +33,6 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('/dishes/{id}/delete', [DishController::class, 'del'])->name('dishes.delete');
 	Route::delete('/dishes/{id}', [DishController::class, 'destroy'])->name('dishes.destroy');
 	Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+	Route::get('/orders/create/{rid}/{did}', [OrderController::class, 'create'])->name('orders.create');
+	Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
 });

@@ -55,7 +55,7 @@
 							<td>{{ $order->ordered_at }}</td>
 							<td>{{ $restaurants[$order->made_by] }}</td>
 							<td>{{ $dishes[$order->dish_id] }}</td>
-							<td>{{ $couriers[$order->courier_id] }}</td>
+							<td>{{ $order->courier_id ? $couriers[$order->courier_id] : '-' }}</td>
 							<td>{{ $order->address }}</td>
 							<td>{{ __('order.'. $order->status) }}</td>
 							@if ($order->rating)

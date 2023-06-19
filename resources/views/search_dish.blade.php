@@ -60,6 +60,9 @@
 							<form action="{{ route('dishes.delete', $dish->id) }}" method="GET">
 								<button type="submit">{{ __('dish.delete') }}</button>
 							</form>
+							<form action="{{ route('orders.create', [$dish->maker, $dish->id]) }}" method="GET">
+								<button type="submit">{{ __('order.order') }}</button>
+							</form>
 						</td>
 					</tr>
 				@endforeach

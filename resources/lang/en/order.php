@@ -15,4 +15,7 @@ return [
 	'ready' => 'Ready for delivery',
 	'enroute' => 'En route to the delivery address',
 	'completed' => 'Delivered',
+	
+	'order' => 'Order',
+	'create' => 'Create a new order',
 ];

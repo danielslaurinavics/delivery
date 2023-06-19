@@ -20,10 +20,10 @@ return new class extends Migration
 			$table->foreign('made_by')->references('id')->on('restaurants')->onDelete('CASCADE');
 			$table->unsignedBigInteger('dish_id');
 			$table->foreign('dish_id')->references('id')->on('dishes')->onDelete('CASCADE');
-			$table->unsignedBigInteger('courier_id');
+			$table->unsignedBigInteger('courier_id')->nullable();
 			$table->foreign('courier_id')->references('id')->on('users')->onDelete('CASCADE');
 			$table->string('address');
-			$table->string('status');
+			$table->string('status')->default('pending');
             $table->timestamps();
         });
     }

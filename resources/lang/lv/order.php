@@ -14,5 +14,14 @@ return [
 	'preparation' => 'Tiek gatavots',
 	'ready' => 'Gatavs piegādei',
 	'enroute' => 'Ceļā uz piegādes adresi',
-	'completed' => 'Piegādāts'
+	'completed' => 'Piegādāts',
+	
+	'order' => 'Pasūtīt',
+	'create' => 'Izveidot pasūtījumu',
+	
+	'resto' => 'Restorāns, no kura tiks pasūtīts',
+	'disho' => 'Ēdiens, kas tiks pasūtīts',
+	'priceo' => 'Cena',
+	'addresso' => 'Piegādes adrese',
+	'addresserr' => 'Jums ir jānorāda adrese, kurā piegādāt pasūtījumu!',
 ];
