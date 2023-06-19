@@ -35,4 +35,9 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 	Route::get('/orders/create/{rid}/{did}', [OrderController::class, 'create'])->name('orders.create');
 	Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+	
+	Route::put('/orders/setPrep/{id}', [OrderController::class, 'setAsPrep'])->name('orders.setprep');
+	Route::put('/orders/setR/{id}', [OrderController::class, 'setAsReady'])->name('orders.setr');
+	Route::put('/orders/setE/{id}', [OrderController::class, 'setAsEnroute'])->name('orders.sete');
+	Route::put('/orders/setC/{id}', [OrderController::class, 'setAsDelivered'])->name('orders.setd');
 });

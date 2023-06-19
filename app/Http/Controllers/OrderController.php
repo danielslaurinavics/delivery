@@ -17,7 +17,7 @@ class OrderController extends Controller
 		$user = Auth::user();
         $orders = Order::where('ordered_by', $user->id)->get();
 		$restaurants = Restaurant::pluck('name', 'id');
-		$dishes = Dish::pluck('name', 'id');
+		$dishes = Dish::all()->keyBy('id');
 		$couriers = User::pluck('name', 'id');
 		
 		$orderIds = $orders->pluck('id');
@@ -56,5 +56,37 @@ class OrderController extends Controller
 		
 		return redirect()->route('orders.index');		
 	}
+	
+	public function setAsPrep (string $id)
+	{
+		$order = Order::findOrFail($id);
+		$order->status = 'preparation';
+		$order->save();
+		return redirect()->route('orders.index');
+	}
+	
+	public function setAsReady (string $id)
+	{
+		$order = Order::findOrFail($id);
+		$order->status = 'ready';
+		$order->save();
+		return redirect()->route('orders.index');
+	}
+
+	public function setAsEnroute (string $id)
+	{
+		$order = Order::findOrFail($id);
+		$order->status = 'enroute';
+		$order->save();
+		return redirect()->route('orders.index');
+	}	
+	
+	public function setAsDelivered (string $id)
+	{
+		$order = Order::findOrFail($id);
+		$order->status = 'completed';
+		$order->save();
+		return redirect()->route('orders.index');
+	}	
 	
 }

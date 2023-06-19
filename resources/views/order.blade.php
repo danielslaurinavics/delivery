@@ -43,9 +43,11 @@
 						<th>{{ __('order.dish') }}</th>
 						<th>{{ __('order.cour') }}</th>
 						<th>{{ __('order.address') }}</th>
+						<th>{{ __('order.price') }}
 						<th>{{ __('order.status') }}</th>
 						<th>{{ __('order.rateo') }}</th>
 						<th>{{ __('order.ratec') }}</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -54,9 +56,10 @@
 							<td>{{ $order->id }}</td>
 							<td>{{ $order->ordered_at }}</td>
 							<td>{{ $restaurants[$order->made_by] }}</td>
-							<td>{{ $dishes[$order->dish_id] }}</td>
+							<td>{{ $dishes[$order->dish_id]->name }}</td>
 							<td>{{ $order->courier_id ? $couriers[$order->courier_id] : '-' }}</td>
 							<td>{{ $order->address }}</td>
+							<td>{{ $dishes[$order->dish_id]->price }}</td>
 							<td>{{ __('order.'. $order->status) }}</td>
 							@if ($order->rating)
 								<td><meter id="rating-o" value="{{ $order->rating->order_rating }}" min="0" max="5"></meter> {{ $order->rating->order_rating }}/5</td>
@@ -65,6 +68,42 @@
 								<td> - </td>
 								<td> - </td>
 							@endif
+								<td>
+									@if($order->status === 'pending')
+									<form action="{{ route('orders.setprep', $order->id) }}" method="POST">
+										@csrf
+										@method('PUT')
+										<button type="submit">{{ __('order.markasbp')}}</button>
+									</form>
+									@elseif($order->status === 'preparation')
+									<form action="{{ route('orders.setr', $order->id) }}" method="POST">
+										@csrf
+										@method('PUT')
+										<button type="submit">{{ __('order.markasr')}}</button>
+									</form>
+									@elseif($order->status === 'ready')
+									<form action="{{ route('orders.sete', $order->id) }}" method="POST">
+										@csrf
+										@method('PUT')
+										<button type="submit">{{ __('order.markase')}}</button>
+									</form>
+									@elseif($order->status === 'enroute')
+									<form action="{{ route('orders.setd', $order->id) }}" method="POST">
+										@csrf
+										@method('PUT')
+										<button type="submit">{{ __('order.markasc')}}</button>
+									</form>
+									@endif
+									<form action="" method="">
+									<button type="submit">{{ __('order.addrat')}}</button>
+									</form>
+									<form action="" method="">
+									<button type="submit">{{ __('order.editrat')}}</button>
+									</form>
+									<form action="" method="">
+									<button type="submit">{{ __('order.delrat')}}</button>
+									</form>							
+								</td>
 						</tr>
 					@endforeach
 				</tbody>

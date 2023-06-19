@@ -10,6 +10,7 @@ return [
 	'address' => 'Piegādes adrese',
 	'rateo' => 'Pasūtījuma novērtējums',
 	'ratec' => 'Kurjera novērtējums',
+	'price' => 'Pasūtījuma cena',
 	'pending' => 'Tiek apstrādāts',
 	'preparation' => 'Tiek gatavots',
 	'ready' => 'Gatavs piegādei',
@@ -24,4 +25,12 @@ return [
 	'priceo' => 'Cena',
 	'addresso' => 'Piegādes adrese',
 	'addresserr' => 'Jums ir jānorāda adrese, kurā piegādāt pasūtījumu!',
+	
+	'markasbp' => 'Atzīmēt, ka tiek gatavots',
+	'markasr' => 'Atzīmēt, ka gatavs piegādei',
+	'markase' => 'Atzīmēt, ka ir ceļā uz piegādes adresi',
+	'markasc' => 'Atzīmēt, ka ir piegādāts',
+	'addrat' => 'Pievienot vērtējumu',
+	'editrat' => 'Mainīt vērtējumu',
+	'delrat' => 'Dzēst vērtējumu',
 ];
