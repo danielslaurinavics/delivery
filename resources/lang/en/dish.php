@@ -1,0 +1,14 @@
+<?php
+return [
+	'sp' => 'Search...',
+    'search' => 'Search',
+	'name' => 'Name',
+	'price' => 'Price',
+	'maker' => 'Restaurant, which makes it',
+	'cr_nameerr' => 'The name of the dish is required!',
+	'cr_priceerr' => 'The price field is required!',
+	'cr_pricenum' => 'The price must be a number!',
+	'cr_pricepos' => 'The price must be positive!',
+	'cr_makererr' => 'The restaurant, which makes the dish is required!',
+	'create' => 'Create dish',
+];

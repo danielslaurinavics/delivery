@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/switch-language', [LocaleController::class, 'switchLanguage'])->name('switchLanguage');
+Route::middleware(['web'])->post('/switch-language', [LocaleController::class, 'switchLanguage'])->name('switchLanguage');
 
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 

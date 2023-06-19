@@ -21,7 +21,7 @@
 			<input type="hidden" name="_method" value="POST">
 		</form>
 		@if(auth()->check())
-			<h2>Izveidot ēdienu</h2>
+			<h2>{{ __('dish.create') }}</h2>
 			@if ($errors->any())
 				<div class="alert alert-danger">
 					<ul>
@@ -33,17 +33,17 @@
 			@endif
 			<form action="{{ route('dishes.store') }}" method="POST">
 			@csrf
-				<label for="name">Name </label>
+				<label for="name">{{ __('dish.name') }}</label>
 				<input type="text" name="name" id="name" value="{{ old('name') }}"><br>
-				<label for="price">Price</label>
+				<label for="price">{{ __('dish.price') }}</label>
 				<input type="text" name="price" id="price" value="{{ old('price') }}"><br>
-				<label for="maker">Maker</label>
+				<label for="maker">{{ __('dish.maker') }}</label>
 				<select name="maker" id="maker">
 					@foreach($restaurants as $restaurant)
 						<option value="{{ $restaurant->id }}" {{ old('maker') == $restaurant->id ? 'selected' : '' }}>{{ $restaurant->name }}</option>
 					@endforeach
 				</select><br>
-				<button type="submit">submit</button>
+				<button type="submit">{{ __('dish.create') }}</button>
 			</form>
 		@endif
 	</section>

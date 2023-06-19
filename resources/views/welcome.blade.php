@@ -18,7 +18,6 @@
 				<option value="lv" {{ App::getLocale() === 'lv' ? 'selected' : '' }}>Latviešu</option>
 				<option value="en" {{ App::getLocale() === 'en' ? 'selected' : '' }}>English</option>
 			</select>
-			<input type="hidden" name="_method" value="POST">
 		</form>
 		<h2>{{__('messages.welcome')}}</h2>
 		@if(auth()->check())

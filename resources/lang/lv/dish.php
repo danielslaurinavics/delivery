@@ -10,4 +10,5 @@ return [
 	'cr_pricenum' => 'Cenai ir jābūt skaitlim!',
 	'cr_pricepos' => 'Cenai ir jābūt pozitīvai!',
 	'cr_makererr' => 'Ir obligāti jābūt restorānam, kas to ēdienu gatavo!',
+	'create' => 'Izveidot ēdienu',
 ];

@@ -14,15 +14,17 @@ class LocaleController extends Controller
         $validator = Validator::make($request->all(), [
             'locale' => 'required|in:lv,en',
         ]);
+		
         if ($validator->fails()) {
             return redirect()->back();
         }
+		
         $locale = $request->input('locale');
 		
         session()->put('locale', $locale);
 		
         App::setLocale($locale);
-
+		
         return redirect()->back();
     }
 }
