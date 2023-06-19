@@ -15,13 +15,13 @@ return new class extends Migration
             $table->id();
 			$table->dateTime('ordered_at')->default(DB::raw('CURRENT_TIMESTAMP'));
 			$table->unsignedBigInteger('ordered_by');
-			$table->foreign('ordered_by')->references('id')->on('users');
+			$table->foreign('ordered_by')->references('id')->on('users')->onDelete('CASCADE');
 			$table->unsignedBigInteger('made_by');
-			$table->foreign('made_by')->references('id')->on('restaurants');
+			$table->foreign('made_by')->references('id')->on('restaurants')->onDelete('CASCADE');
 			$table->unsignedBigInteger('dish_id');
-			$table->foreign('dish_id')->references('id')->on('dishes');
+			$table->foreign('dish_id')->references('id')->on('dishes')->onDelete('CASCADE');
 			$table->unsignedBigInteger('courier_id');
-			$table->foreign('courier_id')->references('id')->on('users');
+			$table->foreign('courier_id')->references('id')->on('users')->onDelete('CASCADE');
 			$table->string('status');
             $table->timestamps();
         });

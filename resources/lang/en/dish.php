@@ -11,4 +11,9 @@ return [
 	'cr_pricepos' => 'The price must be positive!',
 	'cr_makererr' => 'The restaurant, which makes the dish is required!',
 	'create' => 'Create dish',
+	'edit' => 'Edit',
+	'delete' => 'Delete',
+	'editt' => 'Editing dish :name',
+	'edittt' => 'Edit dish',
+	'back' => 'Back',
 ];

@@ -11,4 +11,13 @@ return [
 	'cr_pricepos' => 'Cenai ir jābūt pozitīvai!',
 	'cr_makererr' => 'Ir obligāti jābūt restorānam, kas to ēdienu gatavo!',
 	'create' => 'Izveidot ēdienu',
+	'edit' => 'Rediģēt',
+	'delete' => 'Dzēst',
+	'editt' => 'Rediģēt ēdienu :name',
+	'edittt' => 'Rediģēt ēdienu',
+	'back' => 'Atpakaļ',
+	'delette' => 'Dzēst elementu :name',
+	'sure_to_delete' => 'Vai TIEŠĀM vēlies dzēst elementu :name ? Šo darību vairs nevarēs atgriezt atpakaļ!',
+	'yes' => 'Jā',
+	'no' => 'Nē',
 ];
