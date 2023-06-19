@@ -38,7 +38,7 @@ The system will be implemented following an MVC paradigm. The system will be dis
 ### User Roles
 The system supports a number of user roles – a visitor, registered user, restaurant, courier, administrator. Each user has different operations available in the system.
 #### User:
--	The same operations what a visitor can do,
+-	Viewing dishes available for ordering,
 -	Making orders and checking their status,
 -	Viewing the information about the order,
 -	Add, edit, remove ratings about the order the user made.

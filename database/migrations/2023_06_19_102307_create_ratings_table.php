@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('ratings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-			$table->string('role')->default('user');
-			$table->boolean('is_blocked')->default(false);
-            $table->rememberToken();
+			$table->unsignedBigInteger('user_id');
+			$table->foreign('user_id')->references('id')->on('users');
+			$table->unsignedBigInteger('order_id')->unique();
+			$table->foreign('order_id')->references('id')->on('orders');
+			$table->integer('order_rating');
+			$table->integer('courier_rating');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('ratings');
     }
 };
