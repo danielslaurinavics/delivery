@@ -94,15 +94,18 @@
 										<button type="submit">{{ __('order.markasc')}}</button>
 									</form>
 									@endif
-									<form action="" method="">
+									@if(empty($order->rating) && $order->status === 'completed')
+									<form action="{{ route('ratings.create', $order->id) }}" method="GET">
 									<button type="submit">{{ __('order.addrat')}}</button>
 									</form>
+									@elseif (isset($order->rating) && $order->status === 'completed')
 									<form action="" method="">
 									<button type="submit">{{ __('order.editrat')}}</button>
 									</form>
 									<form action="" method="">
 									<button type="submit">{{ __('order.delrat')}}</button>
-									</form>							
+									</form>		
+									@endif
 								</td>
 						</tr>
 					@endforeach

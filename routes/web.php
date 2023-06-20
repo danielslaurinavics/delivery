@@ -5,6 +5,7 @@ use App\Http\Controllers\LocaleController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DishController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\RatingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,12 +33,15 @@ Route::middleware(['auth'])->group(function () {
 	Route::put('/dishes/{id}', [DishController::class, 'update'])->name('dishes.update');
 	Route::get('/dishes/{id}/delete', [DishController::class, 'del'])->name('dishes.delete');
 	Route::delete('/dishes/{id}', [DishController::class, 'destroy'])->name('dishes.destroy');
+	
 	Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 	Route::get('/orders/create/{rid}/{did}', [OrderController::class, 'create'])->name('orders.create');
 	Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
-	
 	Route::put('/orders/setPrep/{id}', [OrderController::class, 'setAsPrep'])->name('orders.setprep');
 	Route::put('/orders/setR/{id}', [OrderController::class, 'setAsReady'])->name('orders.setr');
 	Route::put('/orders/setE/{id}', [OrderController::class, 'setAsEnroute'])->name('orders.sete');
 	Route::put('/orders/setC/{id}', [OrderController::class, 'setAsDelivered'])->name('orders.setd');
+	
+	Route::get('/orders/rating/{id}', [RatingController::class, 'create'])->name('ratings.create');
+	Route::post('/orders/rating', [RatingController::class, 'store'])->name('ratings.store');
 });
