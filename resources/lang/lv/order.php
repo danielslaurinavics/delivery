@@ -1,16 +1,16 @@
 <?php
 return [
     'title' => 'Jūsu veiktie pasūtījumi',
-	'id' => 'Pasūtījuma kods',
-	'dtime' => 'Pasūtījuma laiks',
-	'rest' => 'Restorāns, no kuras nāca pasūtījums',
+	'id' => 'Kods',
+	'dtime' => 'Datums un laiks',
+	'rest' => 'Pasūtījuma sagatavotājs',
 	'dish' => 'Pasūtītais ēdiens',
-	'cour' => 'Kurjers, kas veica piegādi',
+	'cour' => 'Kurjers',
 	'status' => 'Pasūtījuma statuss',
 	'address' => 'Piegādes adrese',
 	'rateo' => 'Pasūtījuma novērtējums',
 	'ratec' => 'Kurjera novērtējums',
-	'price' => 'Pasūtījuma cena',
+	'price' => 'Summa',
 	'pending' => 'Tiek apstrādāts',
 	'preparation' => 'Tiek gatavots',
 	'ready' => 'Gatavs piegādei',
@@ -51,4 +51,9 @@ return [
 	'crgte' => 'Kurjera piegādes ātruma novērtējuma minimālā vērtība ir 0!',
 	'orlte' => 'Pasūtījuma kvalitātes novērtējuma maksimālā vērtība ir 5!',
 	'crlte' => 'Kurjera piegādes ātruma novērtējuma maksimālā vērtība ir 5!',
+	
+	'ratedel' => 'Dzēst vērtējumu pasūtījumam :id',
+	'sure_to_delete' => 'Vai jūs esat pārliecināts dzēst vērtējumu pasūtījumam ar numuru :id? Šo darbību nevar atsaukt!',
+	'yes' => 'Jā',
+	'no' => 'Nē',
 ];

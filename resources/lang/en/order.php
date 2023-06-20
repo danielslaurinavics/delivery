@@ -1,11 +1,11 @@
 <?php
 return [
     'title' => 'Orders you had made',
-	'id' => 'Order ID',
-	'dtime' => 'Time of order',
-	'rest' => 'Restaurant, from which the order was processed',
+	'id' => 'ID',
+	'dtime' => 'Date and time',
+	'rest' => 'Order prepared by',
 	'dish' => 'Dish ordered',
-	'cour' => 'Courier, who delivered the order',
+	'cour' => 'Courier',
 	'status' => 'Order status',
 	'price' => 'Order price',
 	'address' => 'Delivery address',

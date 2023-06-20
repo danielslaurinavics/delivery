@@ -42,7 +42,7 @@
 			<li><a href="">{{ __('choice.new_rating') }}</a></li>
 			<li><a href="">{{ __('choice.edit_rating') }}</a></li>
 			<li><a href="">{{ __('choice.delete_rating') }}</a></li>
-			<li><a href="">{{ __('choice.manage_users') }}</a></li>
+			<li><a href="{{ route('users.index') }}">{{ __('choice.manage_users') }}</a></li>
 			<li><a href="">{{ __('choice.block_users') }}</a></li>
 			</ul>
 		@else

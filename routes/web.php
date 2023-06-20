@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DishController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,4 +45,10 @@ Route::middleware(['auth'])->group(function () {
 	
 	Route::get('/orders/rating/{id}', [RatingController::class, 'create'])->name('ratings.create');
 	Route::post('/orders/rating', [RatingController::class, 'store'])->name('ratings.store');
+	
+	Route::get('/users', [UserController::class, 'index'])->name('users.index');
+	Route::get('/users/block/{id}', [UserController::class, 'blo'])->name('users.blo');
+	Route::post('/users/block/{id}', [UserController::class, 'block'])->name('users.block');
+	Route::post('/users/unblock/{id}', [UserController::class, 'unblock'])->name('users.unblock');
+
 });

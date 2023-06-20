@@ -54,7 +54,7 @@
 					@foreach ($orders as $order)
 						<tr>
 							<td>{{ $order->id }}</td>
-							<td>{{ $order->ordered_at }}</td>
+							<td>{{ date('d.m.Y. H:i', strtotime($order->ordered_at)) }}</td>
 							<td>{{ $restaurants[$order->made_by] }}</td>
 							<td>{{ $dishes[$order->dish_id]->name }}</td>
 							<td>{{ $order->courier_id ? $couriers[$order->courier_id] : '-' }}</td>
@@ -98,13 +98,6 @@
 									<form action="{{ route('ratings.create', $order->id) }}" method="GET">
 									<button type="submit">{{ __('order.addrat')}}</button>
 									</form>
-									@elseif (isset($order->rating) && $order->status === 'completed')
-									<form action="" method="">
-									<button type="submit">{{ __('order.editrat')}}</button>
-									</form>
-									<form action="" method="">
-									<button type="submit">{{ __('order.delrat')}}</button>
-									</form>		
 									@endif
 								</td>
 						</tr>
