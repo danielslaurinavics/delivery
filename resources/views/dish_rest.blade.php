@@ -38,6 +38,9 @@
 				<button type="submit">{{ __('dish.search') }}</button>
 			</form>
 			
+			@if($dishes->isEmpty())
+				<p>{{ __('messages.emptytable') }}</p>
+			@else
 			<table>
 				<thead>
 					<tr>
@@ -65,9 +68,7 @@
 				@endforeach
 				</tbody>					
 			</table>
-			
-			
-			
+			@endif
 		@endif
 	</section>
 </body>

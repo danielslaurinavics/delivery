@@ -11,4 +11,5 @@ return [
 	'loggedin' => 'Logged in as :name',
 	'logout' => 'Logout',
 	'choice' => 'What do you want to do?',
+	'emptytable' => 'There are no data at the moment',
 ];

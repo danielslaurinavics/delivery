@@ -11,4 +11,5 @@ return [
 	'loggedin' => 'Pieslēdzies kā :name',
 	'logout' => 'Atslēgties',
 	'choice' => 'Ko jūs vēlaties darīt?',
+	'emptytable' => 'Šajā brīdī nav nekādu datu',
 ];

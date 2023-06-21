@@ -38,33 +38,34 @@
 				<button type="submit">{{ __('dish.search') }}</button>
 			</form>
 			
-			<table>
-				<thead>
-					<tr>
-						<th>{{ __('dish.name') }}</th>
-						<th>{{ __('dish.price') }}</th>
-						<th>{{ __('dish.maker') }}</th>
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-				@foreach ($dishes as $dish)
-					<tr>
-						<td>{{ $dish->name }} </td>
-						<td>{{ $dish->price }}</td>
-						<td>{{ $dish->maker_name }}</td>
-						<td>
-							<form action="{{ route('orders.create', [$dish->maker, $dish->id]) }}" method="GET">
-								<button type="submit">{{ __('order.order') }}</button>
-							</form>
-						</td>
-					</tr>
-				@endforeach
-				</tbody>					
-			</table>
-			
-			
-			
+			@if($dishes->isEmpty())
+				<p>{{ __('messages.emptytable') }}</p>
+			@else
+				<table>
+					<thead>
+						<tr>
+							<th>{{ __('dish.name') }}</th>
+							<th>{{ __('dish.price') }}</th>
+							<th>{{ __('dish.maker') }}</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+					@foreach ($dishes as $dish)
+						<tr>
+							<td>{{ $dish->name }} </td>
+							<td>{{ $dish->price }}</td>
+							<td>{{ $dish->maker_name }}</td>
+							<td>
+								<form action="{{ route('orders.create', [$dish->maker, $dish->id]) }}" method="GET">
+									<button type="submit">{{ __('order.order') }}</button>
+								</form>
+							</td>
+						</tr>
+					@endforeach
+					</tbody>					
+				</table>
+			@endif
 		@endif
 	</section>
 </body>

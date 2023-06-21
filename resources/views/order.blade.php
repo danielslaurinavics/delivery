@@ -34,6 +34,9 @@
 			
 			<h2>{{ __('order.title') }}</h2>
 			
+			@if($orders->isEmpty())
+				<p>{{ __('messages.emptytable') }}</p>
+			@else
 			<table>
 				<thead>
 					<tr>
@@ -79,6 +82,7 @@
 					@endforeach
 				</tbody>
 			<table>
+			@endif
 		@endif
 	</section>
 </body>
