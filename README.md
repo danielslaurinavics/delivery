@@ -40,12 +40,17 @@ The system will be implemented following an MVC paradigm. The system will be dis
 -	OrderController with methods for:
 	- retrieving and showing list of orders,
 	- creating and storing new orders,
-	- updating the order status, 
-	- returning a list of pending orders to restaurants.
--	CourierController with methods for:
-	- retrieving and showing list of orders:
-	  - ready for delivery,
-	  - orders, which are delivered by that particular courier, which are en route.
+	- returning a list of pending orders:
+	  - for restaurants:
+		- orders, which are pending, in preparation and ready for delivery,
+		- ability to change status: pending => preparation, preparation => ready for delivery,
+		- only orders from the restaurant the user is logged in from are seen.
+	  - for couriers:
+		- orders, which are ready for delivery and en route to delivery address,
+		- ability to change status: ready for delivery => en route, en route => delivered (completed).
+		- the courier user is only able to see:
+		  - orders which are ready for delivery (can be chosen),
+		  - orders which are being delivered by him/her (assigned to courier).
 -	RatingController with methods for
 	- assigning ratings to the orders which are complete.
 	- viewing average quality rating for restaurants and average performance ratings for couriers.
@@ -53,7 +58,7 @@ The system will be implemented following an MVC paradigm. The system will be dis
     - editing users,
 	- blocking users,
 	- editing user information,
-	- changing user's password,
+	- changing user's password (in case the user is logged in),
 	- changing roles of users,
 	- creating restaurants for users whose role is changed to Restaurant.
 -	Laravel standard RegisterController and LoginController.
