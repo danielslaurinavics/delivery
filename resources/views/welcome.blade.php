@@ -37,7 +37,10 @@
 			<li><a href="{{ route('orders.index') }}">{{ __('choice.view_my_order') }}</a></li>
 			<li><a href="{{ route('dishes.create') }}">{{ __('choice.add_dish') }}</a></li>
 			<li><a href="{{ route('users.index') }}">{{ __('choice.manage_users') }}</a></li>
-			<li><a href="{{ route('courier.index') }}">Apskatīties pasūtījumus, kuras ir gatavas nodošanai piegādei vai kuri ir ceļā</a></li>
+			<li><a href="{{ route('courier.index') }}">{{ __('choice.view_orders_cour') }}</a></li>
+			<li><a href="{{ route('rest.index') }}">{{ __('choice.view_orders_rest') }}</a></li>
+			<li><a href="{{ route('ratings.restrat' , auth()->user()->id ) }}">{{ __('choice.view_rating_rest') }}</a></li>
+			<lI><a href="{{ route('ratings.courrat', auth()->user()->id ) }}">{{ __('choice.view_rating_cour') }}</a></li>
 			</ul>
 		@else
 			<p>{{__('messages.pl_login')}}</p>

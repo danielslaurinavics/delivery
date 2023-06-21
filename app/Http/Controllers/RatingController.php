@@ -7,6 +7,7 @@ use Auth;
 use App\Models\User;
 use App\Models\Order;
 use App\Models\Rating;
+use App\Models\Restaurant;
 
 class RatingController extends Controller
 {
@@ -41,4 +42,45 @@ class RatingController extends Controller
 		
 		return redirect()->route('orders.index');
 	}
+	
+	public function viewRestRating (string $id)
+	{
+		$user = User::findOrFail($id);
+		
+		$restaurant = Restaurant::where('manager', $user->id)->pluck('id');
+		$orders = Order::whereIn('made_by', $restaurant)->pluck('id');
+		$ratings = Rating::whereIn('order_id', $orders)->get();
+		
+		$avgrat = 0.0;
+		$countord = count($orders);
+		$countrat = count($ratings);
+		
+		foreach ($ratings as $rating) {
+			$avgrat = $avgrat + $rating->order_rating;
+		}
+		
+		$avgrat = $avgrat / $countrat;
+		$avgratf = number_format($avgrat, 2);
+		
+		return view('view_rating_rest', compact('avgratf', 'countord', 'countrat'));
+	}
+	
+	public function viewCourRating (string $id)
+	{
+		$user = User::findOrFail($id);
+		$orders = Order::where('courier_id', $user->id)->pluck('id');
+		$ratings = Rating::whereIn('order_id', $orders)->get();
+		
+		$avgrat = 0.0;
+		$countord = count($orders);
+		$countrat = count($ratings);
+		
+		foreach ($ratings as $rating) $avgrat = $avgrat + $rating->courier_rating;
+		
+		$avgrat = $avgrat / $countrat;
+		$avgratf = number_format($avgrat, 2);
+		
+		return view('view_rating_cour', compact('avgratf','countord','countrat'));
+	}
+	
 }

@@ -20,16 +20,16 @@ The system will be implemented following an MVC paradigm. The system will be dis
 -	Restaurant,
 -	Rating.
 #### Views:
--	List of dishes with a search box,
--	View for creating new orders,
--	View for restaurants adding new dishes,
--	View for restaurants editing existing dishes,
--	View for restaurants deleting existing dishes (used as confirmation prompt),
--	View for giving ratings about the order (the ratings for restaurants (quality) and couriers (performance) are separate),
--	Views for watching ratings (restaurants see their quality rating, couriers - their performance rating),
+-	List of dishes with a search box, done
+-	View for creating new orders, done
+-	View for restaurants adding new dishes, done
+-	View for restaurants editing existing dishes, done
+-	View for restaurants deleting existing dishes (used as confirmation prompt), done
+-	View for giving ratings about the order (the ratings for restaurants (quality) and couriers (performance) are separate), done
+-	Views for watching ratings (restaurants see their quality rating, couriers - their performance rating), done
 -	View for editing user information,
 -	View for admins to manage users,
--	View for admins to block users (used as confirmation prompt),
+-	View for admins to block users (used as confirmation prompt), done
 #### Controllers:
 -	LocaleController with methods of setting up the application language during the session.
 -	DishController with methods for retrieving and showing list of dishes, creating and storing new dishes, returning a list of dishes filtered by search string in name of the dish.

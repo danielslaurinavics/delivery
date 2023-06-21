@@ -57,12 +57,34 @@ class OrderController extends Controller
 		return redirect()->route('orders.index');		
 	}
 	
+	public function restindex()
+	{
+		$user = Auth::user();
+		$rest = Restaurant::where('manager', $user->id)->pluck('id');
+		$statuses = ['pending','preparation','ready'];
+		$orders = Order::where(function ($query) use ($rest, $statuses) {$query->whereIn('status', $statuses)->where('made_by', $rest);})->get();
+		$restaurants = Restaurant::pluck('name', 'id');
+		$dishes = Dish::all()->keyBy('id');
+		$couriers = User::pluck('name', 'id');
+		
+		$orderIds = $orders->pluck('id');
+		$ratings = Rating::whereIn('order_id', $orderIds)->get()->keyBy('order_id');
+		
+		return view('order_rest', [
+		'orders' => $orders,
+		'restaurants' => $restaurants,
+		'dishes' => $dishes,
+		'couriers' => $couriers,
+		'ratings' => $ratings,
+		]);
+	}
+	
 	public function setAsPrep (string $id)
 	{
 		$order = Order::findOrFail($id);
 		$order->status = 'preparation';
 		$order->save();
-		return redirect()->route('orders.index');
+		return redirect()->route('rest.index');
 	}
 	
 	public function setAsReady (string $id)
@@ -70,7 +92,27 @@ class OrderController extends Controller
 		$order = Order::findOrFail($id);
 		$order->status = 'ready';
 		$order->save();
-		return redirect()->route('orders.index');
+		return redirect()->route('rest.index');
+	}
+
+	public function courindex ()
+	{
+		$user = Auth::user();
+		$orders = Order::where(function ($query) use ($user) {$query->where('status', 'enroute')->where('courier_id', $user->id);})->orWhere('status', 'ready')->get();
+		$restaurants = Restaurant::pluck('name', 'id');
+		$dishes = Dish::all()->keyBy('id');
+		$couriers = User::pluck('name', 'id');
+		
+		$orderIds = $orders->pluck('id');
+		$ratings = Rating::whereIn('order_id', $orderIds)->get()->keyBy('order_id');
+		
+		return view('order_courier', [
+		'orders' => $orders,
+		'restaurants' => $restaurants,
+		'dishes' => $dishes,
+		'couriers' => $couriers,
+		'ratings' => $ratings,
+		]);
 	}
 
 	public function setAsEnroute (string $id)
@@ -89,5 +131,4 @@ class OrderController extends Controller
 		$order->save();
 		return redirect()->route('courier.index');
 	}	
-	
 }

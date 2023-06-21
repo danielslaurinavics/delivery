@@ -51,4 +51,19 @@ return [
 	'crgte' => 'The minimum value of the courier rating is 0!',
 	'orlte' => 'The maximum value of the order quality rating is 5!',
 	'crlte' => 'The maximum value of the courier rating is 5!',
+	
+	'vieworatings' => 'View the rating of restaurants order quality',
+	'viewcratings' => 'View the rating of couriers order speed',
+	
+	'ordersproc' => 'Orders processed - :count',
+	'ordersdel' => 'Orders delivered - :count',
+	'amongrat' => 'Out of which, :count have a rating assigned',
+	
+	'avgrat' => 'Average rating: ',
+	'avgrat2' => ':avgrat out of 5',
+	
+	'great' => 'You are doing your work very well! Keep it up!',
+	'well' => 'You are doing your work well, but keep improving!',
+	'okay' => 'Your average work rating is okay. Improve your performance!',
+	'poor' => 'Your average work ratings is poor. Implement performance improving measures immediately!'
 ];

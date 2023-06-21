@@ -7,7 +7,6 @@ use App\Http\Controllers\DishController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\CourierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,11 +46,15 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('/orders/rating/{id}', [RatingController::class, 'create'])->name('ratings.create');
 	Route::post('/orders/rating', [RatingController::class, 'store'])->name('ratings.store');
 	
+	Route::get('/rating/rest/{id}', [RatingController::class, 'viewRestRating'])->name('ratings.restrat');
+	Route::get('/rating/cour/{id}', [RatingController::class, 'viewCourRating'])->name('ratings.courrat');
+	
 	Route::get('/users', [UserController::class, 'index'])->name('users.index');
 	Route::get('/users/block/{id}', [UserController::class, 'blo'])->name('users.blo');
 	Route::post('/users/block/{id}', [UserController::class, 'block'])->name('users.block');
 	Route::post('/users/unblock/{id}', [UserController::class, 'unblock'])->name('users.unblock');
 	
-	Route::get('/orders/courier', [CourierController::class, 'index'])->name('courier.index');
+	Route::get('/orders/courier', [OrderController::class, 'courindex'])->name('courier.index');
+	Route::get('/orders/rest', [OrderController::class, 'restindex'])->name('rest.index');
 
 });

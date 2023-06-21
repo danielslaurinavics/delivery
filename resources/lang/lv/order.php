@@ -51,9 +51,19 @@ return [
 	'crgte' => 'Kurjera piegādes ātruma novērtējuma minimālā vērtība ir 0!',
 	'orlte' => 'Pasūtījuma kvalitātes novērtējuma maksimālā vērtība ir 5!',
 	'crlte' => 'Kurjera piegādes ātruma novērtējuma maksimālā vērtība ir 5!',
+
+	'vieworatings' => 'Apskatīties restorāna darba novērtējumu',
+	'viewcratings' => 'Apskatīties kurjera darba novērtējumu',
 	
-	'ratedel' => 'Dzēst vērtējumu pasūtījumam :id',
-	'sure_to_delete' => 'Vai jūs esat pārliecināts dzēst vērtējumu pasūtījumam ar numuru :id? Šo darbību nevar atsaukt!',
-	'yes' => 'Jā',
-	'no' => 'Nē',
+	'ordersproc' => 'Apstrādātie pasūtījumi - :count',
+	'ordersdel' => 'Piegādātie pasūtījumi - :count',
+	'amongrat' => 'Starp tiem, :count ir piešķirts vērtējums',
+	
+	'avgrat' => 'Vidējais novērtējums: ',
+	'avgrat2' => ':avgrat no 5',
+	
+	'great' => 'Jūs veicat savu darbu ļoti labi! Tā turpināt!',
+	'well' => 'Jūs ļoti labi veicat savu darbu, bet turpiniet uzlabot savu sniegumu!',
+	'okay' => 'Jūsu darba vidējais novērtējums ir labs. Uzlabojiet savu sniegumu!',
+	'poor' => 'Jūsu darba sniegums ir slikts! Nekavējoties ieviesiet snieguma uzlabošanas pasākumus!'
 ];

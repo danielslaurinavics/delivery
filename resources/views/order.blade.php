@@ -69,19 +69,6 @@
 								<td> - </td>
 							@endif
 								<td>
-									@if($order->status === 'pending')
-									<form action="{{ route('orders.setprep', $order->id) }}" method="POST">
-										@csrf
-										@method('PUT')
-										<button type="submit">{{ __('order.markasbp')}}</button>
-									</form>
-									@elseif($order->status === 'preparation')
-									<form action="{{ route('orders.setr', $order->id) }}" method="POST">
-										@csrf
-										@method('PUT')
-										<button type="submit">{{ __('order.markasr')}}</button>
-									</form>
-									@endif
 									@if(empty($order->rating) && $order->status === 'completed')
 									<form action="{{ route('ratings.create', $order->id) }}" method="GET">
 									<button type="submit">{{ __('order.addrat')}}</button>

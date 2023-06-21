@@ -58,18 +58,18 @@
 							<td>{{ $order->address }}</td>
 							<td>{{ __('order.'. $order->status) }}</td>
 							<td>
-								@if($order->status === 'ready')
-								<form action="{{ route('orders.sete', $order->id) }}" method="POST">
-									@csrf
-									@method('PUT')
-									<button type="submit">{{ __('order.markase')}}</button>
-								</form>
-								@elseif($order->status === 'enroute')
-								<form action="{{ route('orders.setd', $order->id) }}" method="POST">
-									@csrf
-									@method('PUT')
-									<button type="submit">{{ __('order.markasc')}}</button>
-								</form>
+								@if($order->status === 'pending')
+									<form action="{{ route('orders.setprep', $order->id) }}" method="POST">
+										@csrf
+										@method('PUT')
+										<button type="submit">{{ __('order.markasbp')}}</button>
+									</form>
+								@elseif($order->status === 'preparation')
+									<form action="{{ route('orders.setr', $order->id) }}" method="POST">
+										@csrf
+										@method('PUT')
+										<button type="submit">{{ __('order.markasr')}}</button>
+									</form>
 								@endif
 							</td>
 						</tr>
