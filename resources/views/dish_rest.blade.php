@@ -54,8 +54,11 @@
 						<td>{{ $dish->price }}</td>
 						<td>{{ $dish->maker_name }}</td>
 						<td>
-							<form action="{{ route('orders.create', [$dish->maker, $dish->id]) }}" method="GET">
-								<button type="submit">{{ __('order.order') }}</button>
+							<form action="{{ route('dishes.edit', $dish->id) }}" method="GET">
+								<button type="submit">{{ __('dish.edit') }}</button>
+							</form>
+							<form action="{{ route('dishes.delete', $dish->id) }}" method="GET">
+								<button type="submit">{{ __('dish.delete') }}</button>
 							</form>
 						</td>
 					</tr>

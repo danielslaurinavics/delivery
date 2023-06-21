@@ -33,14 +33,33 @@
 			<br>
 			<h3>{{ __('messages.choice') }}</h3>
 			<ul>
-			<li><a href="{{ route('dishes.index') }}">{{ __('choice.view_offers') }}</a></li>
-			<li><a href="{{ route('orders.index') }}">{{ __('choice.view_my_order') }}</a></li>
-			<li><a href="{{ route('dishes.create') }}">{{ __('choice.add_dish') }}</a></li>
-			<li><a href="{{ route('users.index') }}">{{ __('choice.manage_users') }}</a></li>
-			<li><a href="{{ route('courier.index') }}">{{ __('choice.view_orders_cour') }}</a></li>
-			<li><a href="{{ route('rest.index') }}">{{ __('choice.view_orders_rest') }}</a></li>
+			@can('view-dishes')
+				<li><a href="{{ route('dishes.index') }}">{{ __('choice.view_offers') }}</a></li>
+			@endcan
+			@can('view-dishes-rest')
+				<li><a href="{{ route('dishes.rindex') }}">{{ __('choice.view_rdishes') }}</a></li>
+			@endcan
+			@can('view-orders')
+				<li><a href="{{ route('orders.index') }}">{{ __('choice.view_my_order') }}</a></li>
+			@endcan
+			@can('ced-dishes')
+				<li><a href="{{ route('dishes.create') }}">{{ __('choice.add_dish') }}</a></li>
+			@endcan
+			@can('manage-users')
+				<li><a href="{{ route('users.index') }}">{{ __('choice.manage_users') }}</a></li>
+			@endcan
+			@can('view-cour-orders')
+				<li><a href="{{ route('courier.index') }}">{{ __('choice.view_orders_cour') }}</a></li>
+			@endcan
+			@can('view-rest-orders')
+				<li><a href="{{ route('rest.index') }}">{{ __('choice.view_orders_rest') }}</a></li>
+			@endcan
+			@can('view-rest-rating')
 			<li><a href="{{ route('ratings.restrat' , auth()->user()->id ) }}">{{ __('choice.view_rating_rest') }}</a></li>
+			@endcan
+			@can('view-cour-rating')
 			<li><a href="{{ route('ratings.courrat', auth()->user()->id ) }}">{{ __('choice.view_rating_cour') }}</a></li>
+			@endcan
 			<li><a href="{{ route('users.edit', auth()->user()->id ) }}">{{ __('choice.make_profile_changes')}}</a></li>
 			</ul>
 		@else

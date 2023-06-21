@@ -31,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
 	
 	Route::get('/dishes', [DishController::class, 'index'])->name('dishes.index');
 	Route::get('/dishes/search', [DishController::class, 'search'])->name('dishes.search');
+	Route::get('/dishes/rest', [DishController::class, 'indexRest'])->name('dishes.rindex');
 	
 	Route::get('/dishes/create', [DishController::class, 'create'])->name('dishes.create');
 	Route::post('/dishes', [DishController::class, 'store'])->name('dishes.store');

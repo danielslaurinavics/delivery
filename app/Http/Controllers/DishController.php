@@ -42,11 +42,25 @@ class DishController extends Controller
 		else abort(403);
 	}
 	
+	public function indexRest()
+	{
+		if(Gate::allows('view-dishes-rest'))
+		{
+			$restaurant = Restaurant::where('manager', auth()->user()->id )->pluck('id');
+			$dishes = Dish::leftJoin('restaurants', 'dishes.maker', '=', 'restaurants.id')
+				->where('dishes.maker', '=', $restaurant)
+				->select('dishes.*', 'restaurants.name as maker_name')
+				->get();
+			return view('dish_rest', ['dishes' => $dishes]);
+		}
+		else abort(403);
+	}
+	
 	public function create()
 	{
 		if(Gate::allows('ced-dishes'))
 		{
-			$restaurants = Restaurant::all();
+			$restaurants = Restaurant::where('manager', auth()->user()->id )->get();
 			return view('create_dish', compact('restaurants'));
 		}
 		else abort(403);
@@ -74,7 +88,7 @@ class DishController extends Controller
 			$dish->maker = $request->input('maker');
 			$dish->save();
 			
-			return redirect()->route('dishes.index');
+			return redirect()->route('dishes.rindex');
 		}
 		else abort(403);
 	}
@@ -84,7 +98,7 @@ class DishController extends Controller
 		if(Gate::allows('ced-dishes'))
 		{
 			$dish = Dish::findOrFail($id);
-			$restaurants = Restaurant::all();
+			$restaurants = Restaurant::where('manager', auth()->user()->id )->get();
 			return view('edit_dish', ['dish' => $dish, 'restaurants' => $restaurants]);
 		}
 		else abort(403);
@@ -112,7 +126,7 @@ class DishController extends Controller
 			$dish->maker = $request->input('maker');
 			$dish->save();
 			
-			return redirect()->route('dishes.index');
+			return redirect()->route('dishes.rindex');
 		}
 		else abort(403);
 	}
@@ -138,7 +152,7 @@ class DishController extends Controller
 			Order::whereIn('id', $orderIds)->delete();
 			
 			$dish->delete();
-			return redirect()->route('dishes.index');
+			return redirect()->route('dishes.rindex');
 		}
 		else abort(403);
 	}

@@ -9,4 +9,5 @@ return [
 	'view_rating_cour' => 'Apskatīt sava darba reitingu',
 	'view_rating_rest' => 'Apskatīt restorāna darba reitingu',
 	'make_profile_changes' => 'Mainīt profila informāciju',
+	'view_rdishes' => 'Apskatīt restorāna piedāvātos ēdienus',
 ];
