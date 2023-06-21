@@ -70,8 +70,16 @@ class RatingController extends Controller
 				$avgrat = $avgrat + $rating->order_rating;
 			}
 			
-			$avgrat = $avgrat / $countrat;
-			$avgratf = number_format($avgrat, 2);
+			if ($countrat > 0)
+			{
+				$avgrat = $avgrat / $countrat;
+				$avgratf = number_format($avgrat, 2);
+			}
+			else
+			{
+				$avgrat = 0;
+				$avgratf = number_format($avgrat, 2);
+			}
 			
 			return view('view_rating_rest', compact('avgratf', 'countord', 'countrat'));
 		}
@@ -92,8 +100,16 @@ class RatingController extends Controller
 			
 			foreach ($ratings as $rating) $avgrat = $avgrat + $rating->courier_rating;
 			
-			$avgrat = $avgrat / $countrat;
-			$avgratf = number_format($avgrat, 2);
+			if ($countrat > 0)
+			{
+				$avgrat = $avgrat / $countrat;
+				$avgratf = number_format($avgrat, 2);
+			}
+			else
+			{
+				$avgrat = 0;
+				$avgratf = number_format($avgrat, 2);
+			}
 			
 			return view('view_rating_cour', compact('avgratf','countord','countrat'));
 		}
