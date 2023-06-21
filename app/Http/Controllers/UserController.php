@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Restaurant;
 use App\Models\Order;
+use Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -156,7 +158,28 @@ class UserController extends Controller
 		$user->save();
 		
 		return redirect()->route('welcome');
+	}
+	
+	public function changePassword (Request $request)
+	{
+		$request->validate([
+			'op' => 'required',
+			'np' => 'required|confirmed|min:8',
+		],[
+			'op' => __('users.opreq'),
+			'np' => __('users.npreq'),
+			'np.confirmed' => __('users.npconf'),
+			'np.min' => __('users.npmin'),
+		]);
 		
+		$user = Auth::user();
+		
+		if (!Hash::check($request->op, $user->password)) return back()->withErrors(['error' => __('users.opw')]);
+		
+		$user->password = Hash::make($request->np);
+		$user->save();
+		
+		return redirect()->route('welcome');
 	}
 	
 }

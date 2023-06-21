@@ -45,6 +45,19 @@
 			<form action="{{ route('welcome') }}" method="GET">
 				<button type="submit">{{ __('users.return') }}</button>
 			</form>
+			<br>
+			<h3>{{ __('users.chp') }}</h3>
+			<p>{{ __('users.chpe') }}</p>
+			<form action="{{ route('users.changepass', $user->id) }}" method="POST">
+			@csrf
+				<label for="op">{{ __('users.op') }}</label>
+				<input type="password" name="op" id="op"><br>
+				<label for="np">{{ __('users.np') }}</label>
+				<input type="password" name="np" id="np"><br>
+				<label for="cp">{{ __('users.cp') }}</label>
+				<input type="password" name="np_confirmation" id="np_confirmation"><br>
+				<button type="submit">{{ __('users.chp') }}</button>
+			</form>
 		@endif
 	</section>
 </body>

@@ -50,10 +50,18 @@ return [
 	'yrole' => 'Jūsu loma sistēmā',
 	'confirm' => 'Mainīt informāciju',
 	'chp' => 'Mainīt paroli',
+	'chpe' => 'Jaunajai parolei ir jābūt vismaz 8 zīmes garai.',
+	'op' => 'Vecā parole',
 	'np' => 'Jaunā parole',
 	'cp' => 'Apstipriniet paroli',
 	'return' => 'Atgriezties',
 	'namereq' => 'Lauks "Vārds" nevar būt tukšs!',
+	
+	'opreq' => 'Jūs neesat ievadījuši veco paroli!',
+	'npreq' => 'Jūs neesat ievadījuši jauno paroli!',	
+	'npconf' => 'Jaunās paroles un tās apstiprinājuma vērtības nesakrīt!',
+	'npmin' => 'Jaunajai parolei ir jābūt vismaz 8 zīmes garai!',
+	'opw' => 'Ievadīta nepareiza vecā parole!',
 	
 	'chrolet' => 'Mainīt lomu lietotājam :name',
 	'usercode' => 'Lietotāja ID - :id',
