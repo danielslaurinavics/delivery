@@ -76,9 +76,10 @@ class OrderController extends Controller
 	public function setAsEnroute (string $id)
 	{
 		$order = Order::findOrFail($id);
+		$order->courier_id = auth()->user()->id;
 		$order->status = 'enroute';
 		$order->save();
-		return redirect()->route('orders.index');
+		return redirect()->route('courier.index');
 	}	
 	
 	public function setAsDelivered (string $id)
@@ -86,7 +87,7 @@ class OrderController extends Controller
 		$order = Order::findOrFail($id);
 		$order->status = 'completed';
 		$order->save();
-		return redirect()->route('orders.index');
+		return redirect()->route('courier.index');
 	}	
 	
 }

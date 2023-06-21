@@ -31,32 +31,36 @@ class UserController extends Controller
 			$user->save();
 			return redirect()->route('users.index');
 		}
-		//else if ($user->role === 'restaurant')
-		//{
-			//$restaurant = Restaurant::where('manager', $id)->pluck('id');
-			//$statuses = ['pending','preparation','ready'];
-			//Order::whereHas('made_by', function ($query) use ($id) { $query->where('manager', $id); })->whereIn('status', $statuses)->delete();
+		else if ($user->role === 'restaurant')
+		{
+			$restaurant = Restaurant::where('manager', $id)->pluck('id');
+			$statuses = ['pending','preparation','ready'];
+			$orders = Order::where('made_by', $restaurant)->where('status', $statuses)->get();
 			
-			//$user->is_blocked = true;
-			//$user->save();
-			//return redirect()->route('users.index');
-		//}
-		//else if ($user->role === 'courier')
-		//{
-			//$status = 'enroute';
-			//$changeto = 'ready';
-			//$orders = Order::where('delivered_by', $id)->where('status', $status)->get();
+			foreach ($orders as $order) {
+				$order->delete();
+			}
 			
-			//foreach ($orders as $order) {
-				//$order->delivered_by = null;
-				//$order->status = $changeto;
-				//$order->save();
-			//}
+			$user->is_blocked = true;
+			$user->save();
+			return redirect()->route('users.index');
+		}
+		else if ($user->role === 'courier')
+		{
+			$status = 'enroute';
+			$changeto = 'ready';
+			$orders = Order::where('courier_id', $id)->where('status', $status)->get();
 			
-			//$user->is_blocked = true;
-			//$user->save();
-			//return redirect()->route('users.index');
-		//}
+			foreach ($orders as $order) {
+				$order->courier_id = null;
+				$order->status = $changeto;
+				$order->save();
+			}
+			
+			$user->is_blocked = true;
+			$user->save();
+			return redirect()->route('users.index');
+		}
 		else return redirect()->route('users.index');
 	}
 	

@@ -7,6 +7,7 @@ use App\Http\Controllers\DishController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CourierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,5 +51,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::get('/users/block/{id}', [UserController::class, 'blo'])->name('users.blo');
 	Route::post('/users/block/{id}', [UserController::class, 'block'])->name('users.block');
 	Route::post('/users/unblock/{id}', [UserController::class, 'unblock'])->name('users.unblock');
+	
+	Route::get('/orders/courier', [CourierController::class, 'index'])->name('courier.index');
 
 });

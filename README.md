@@ -21,22 +21,24 @@ The system will be implemented following an MVC paradigm. The system will be dis
 -	Rating.
 #### Views:
 -	List of dishes with a search box,
--	View with information about a particular dish,
 -	View for creating new orders,
 -	View for restaurants adding new dishes,
--	View for changing status of the order (e.g., pending => order received => order given to delivery => order delivered),
--	View for restaurants deleting existing dishes,
+-	View for restaurants editing existing dishes,
+-	View for restaurants deleting existing dishes (used as confirmation prompt),
 -	View for giving ratings about the order (the ratings for restaurants and couriers are separate),
--	View for blocking users.
+-	View for editing user information,
+-	View for admins to manage users,
+-	View for admins to block users (used as confirmation prompt),
 #### Controllers:
+-	LocaleController with methods of setting up the application language during the session.
 -	DishController with methods for retrieving and showing list of dishes, creating and storing new dishes, returning a list of dishes filtered by search string in name of the dish.
 -	OrderController with methods for retrieving and showing list of orders, creating and storing new orders, updating the order status, returning a list of pending orders to restaurants.
--	CourierController with methods of retrieving and showing list of orders ready for delivery and selecting the order to deliver.
+-	CourierController with methods of retrieving and showing list of orders ready for delivery.
 -	RatingController with methods of assigning ratings to the order which is complete.
--	UserController with methods of editing and blocking users, as well as creating restaurants and assigning them to a restaurant role user.
+-	UserController with methods of editind/blocking users, changing roles of users, as well as creating restaurants and assigning them to a user, whose role is Restaurant.
 -	Laravel standard RegisterController and LoginController.
 ### User Roles
-The system supports a number of user roles – a visitor, registered user, restaurant, courier, administrator. Each user has different operations available in the system.
+The system supports a number of user roles – (registered) user, restaurant, courier, administrator. Each user has different operations available in the system.
 #### User:
 -	Viewing dishes available for ordering,
 -	Making orders and checking their status,
@@ -52,7 +54,13 @@ The system supports a number of user roles – a visitor, registered user, resta
 -	Selecting orders which will be delivered,
 -	Changing the order status to mark that the order is on its way/has been delivered.
 #### Administrators:
--	Block users (admins can't block admins)
+-	Block users:
+		- Administrators can't block administrators,
+		- Blocking a user will block access to any site's services,
+		- Blocking a restaurant user will delete all orders, which are not handed to delivery,
+			- Dishes from a blocked restaurant will not be available for ordering,
+		- Blocking a courier will set all undelivered orders to status 'ready for delivery' (handed back to restaurant),
+			- If the restaurant is blocked as well, then the order is deleted,
 -	Change user's role (initially registered users have a user role, the admin assigns the other roles)
 -	Create a new restaurant and assign a restaurant account to it.
 -	Viewing information about the orders.

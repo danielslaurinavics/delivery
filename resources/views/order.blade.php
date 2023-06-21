@@ -81,18 +81,6 @@
 										@method('PUT')
 										<button type="submit">{{ __('order.markasr')}}</button>
 									</form>
-									@elseif($order->status === 'ready')
-									<form action="{{ route('orders.sete', $order->id) }}" method="POST">
-										@csrf
-										@method('PUT')
-										<button type="submit">{{ __('order.markase')}}</button>
-									</form>
-									@elseif($order->status === 'enroute')
-									<form action="{{ route('orders.setd', $order->id) }}" method="POST">
-										@csrf
-										@method('PUT')
-										<button type="submit">{{ __('order.markasc')}}</button>
-									</form>
 									@endif
 									@if(empty($order->rating) && $order->status === 'completed')
 									<form action="{{ route('ratings.create', $order->id) }}" method="GET">

@@ -36,14 +36,8 @@
 			<li><a href="{{ route('dishes.index') }}">{{ __('choice.view_offers') }}</a></li>
 			<li><a href="{{ route('orders.index') }}">{{ __('choice.view_my_order') }}</a></li>
 			<li><a href="{{ route('dishes.create') }}">{{ __('choice.add_dish') }}</a></li>
-			<li><a href="">{{ __('choice.remove_dish') }}</a></li>
-			<li><a href="">{{ __('choice.edit_dish') }}</a></li>
-			<li><a href="">{{ __('choice.view_rating') }}</a></li>
-			<li><a href="">{{ __('choice.new_rating') }}</a></li>
-			<li><a href="">{{ __('choice.edit_rating') }}</a></li>
-			<li><a href="">{{ __('choice.delete_rating') }}</a></li>
 			<li><a href="{{ route('users.index') }}">{{ __('choice.manage_users') }}</a></li>
-			<li><a href="">{{ __('choice.block_users') }}</a></li>
+			<li><a href="{{ route('courier.index') }}">Apskatīties pasūtījumus, kuras ir gatavas nodošanai piegādei vai kuri ir ceļā</a></li>
 			</ul>
 		@else
 			<p>{{__('messages.pl_login')}}</p>
