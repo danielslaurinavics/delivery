@@ -42,4 +42,16 @@ return [
 		'movorders' => 'Visi pasūtījumi, kas bija nodoti piegādei šim kurjeram un nav piegādāti, tiks atgriezti atpakaļ restorānam, lai nodotu piegādei citam kurjeram',
 		// For admin block - which is not possible :)
 		'block-admin' => 'Kā tu šeit tiki? Tu nevari bloķēt administratoru! Poga "Jā" tiks atspējota!',
+	
+	// Change user data
+	'chutitle' => 'Mainīt lietotāja :name informāciju',
+	'yname' => 'Jūsu vārds, uzvārds',
+	'yemail' => 'Jūsu e-pasta adrese',
+	'yrole' => 'Jūsu loma sistēmā',
+	'confirm' => 'Mainīt informāciju',
+	'chp' => 'Mainīt paroli',
+	'np' => 'Jaunā parole',
+	'cp' => 'Apstipriniet paroli',
+	'return' => 'Atgriezties',
+	'namereq' => 'Lauks "Vārds" nevar būt tukšs!',
 ];

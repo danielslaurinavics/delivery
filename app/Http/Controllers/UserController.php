@@ -89,4 +89,27 @@ class UserController extends Controller
 		//$restaurant->manager = ;
 		
 	//}
+	
+	public function edit (string $id)
+	{
+		$user = User::findOrFail($id);
+		return view('user_edit', compact('user'));
+	}
+	
+	public function update (Request $request, string $id)
+	{
+		$user = User::findOrFail($id);
+		$request->validate([
+			'name' => 'required',
+		], [
+			'name' => __('users.namereq'),
+		]);
+		
+		$user->name = $request->input('name');
+		$user->save();
+		
+		return redirect()->route('welcome');
+		
+	}
+	
 }

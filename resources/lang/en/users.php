@@ -42,4 +42,16 @@ return [
 		'movorders' => 'All orders, which were handed in to the blocked courier and have not been completed, will be handed back to the restaurant for another courier to deliver',
 		// For admin block - which is not possible :)
 		'block-admin' => 'How did you get here? You cannot block an administrator! The option "Yes" has been disabled!',
+		
+	// Change user data
+	'chutitle' => 'Change information of user :name',
+	'yname' => 'Your name, surname',
+	'yemail' => 'Your e-mail address',
+	'yrole' => 'Your role in the system',
+	'confirm' => 'Change information',
+	'chp' => 'Change password',
+	'np' => 'New password',
+	'cp' => 'Confirm password',
+	'return' => 'Return',
+	'namereq' => 'The "Name" field cannot be empty!',
 ];

@@ -41,29 +41,8 @@
 			<li><a href="{{ route('rest.index') }}">{{ __('choice.view_orders_rest') }}</a></li>
 			<li><a href="{{ route('ratings.restrat' , auth()->user()->id ) }}">{{ __('choice.view_rating_rest') }}</a></li>
 			<li><a href="{{ route('ratings.courrat', auth()->user()->id ) }}">{{ __('choice.view_rating_cour') }}</a></li>
-			<li><a href="{{ route('users.edit', auth()->user()->id ) }}">{{ __('choice.make_profile_changes')}}</a></li>
+			<li><a href="">{{ __('choice.make_profile_changes')}}</a></li>
 			</ul>
-		@else
-			<p>{{__('messages.pl_login')}}</p>
-				@if($errors->has('auth'))
-					<div class="alert alert-danger">{{ $errors->first('auth') }}</div>
-				@endif
-			<form action="{{ route('login') }}" method="POST">
-				@csrf
-				<label for="email">{{__('messages.email')}}</label>
-				<input type="text" name="email">
-				@error('email')
-					<div class="alert alert-danger">{{ $message }}</div>
-				@enderror
-				<br>
-				<label for="password">{{__('messages.passw')}}</label>
-				<input type="password" name="password">
-				@error('password')
-					<div class="alert alert-danger">{{ $message }}</div>
-				@enderror
-				<br>
-				<button type="submit">{{__('messages.login')}}</button>
-			</form>
 		@endif
 	</section>
 </body>

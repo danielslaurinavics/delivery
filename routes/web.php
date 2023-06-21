@@ -19,15 +19,19 @@ use App\Http\Controllers\UserController;
 |
 */
 
+// Accessible to anyone
 Route::get('/', function () { return view('welcome'); })->name('welcome');
 
 Route::middleware(['web'])->post('/switch-language', [LocaleController::class, 'switchLanguage'])->name('switchLanguage');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
-	
+
+// Accessible to authenticated users only
 Route::middleware(['auth'])->group(function () {
 	Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+	
 	Route::get('/dishes', [DishController::class, 'index'])->name('dishes.index');
 	Route::get('/dishes/search', [DishController::class, 'search'])->name('dishes.search');
+	
 	Route::get('/dishes/create', [DishController::class, 'create'])->name('dishes.create');
 	Route::post('/dishes', [DishController::class, 'store'])->name('dishes.store');
 	Route::get('/dishes/{id}/edit', [DishController::class, 'edit'])->name('dishes.edit');
@@ -42,10 +46,11 @@ Route::middleware(['auth'])->group(function () {
 	Route::put('/orders/setR/{id}', [OrderController::class, 'setAsReady'])->name('orders.setr');
 	Route::put('/orders/setE/{id}', [OrderController::class, 'setAsEnroute'])->name('orders.sete');
 	Route::put('/orders/setC/{id}', [OrderController::class, 'setAsDelivered'])->name('orders.setd');
+	Route::get('/orders/courier', [OrderController::class, 'courindex'])->name('courier.index');
+	Route::get('/orders/rest', [OrderController::class, 'restindex'])->name('rest.index');
 	
 	Route::get('/orders/rating/{id}', [RatingController::class, 'create'])->name('ratings.create');
 	Route::post('/orders/rating', [RatingController::class, 'store'])->name('ratings.store');
-	
 	Route::get('/rating/rest/{id}', [RatingController::class, 'viewRestRating'])->name('ratings.restrat');
 	Route::get('/rating/cour/{id}', [RatingController::class, 'viewCourRating'])->name('ratings.courrat');
 	
@@ -54,7 +59,14 @@ Route::middleware(['auth'])->group(function () {
 	Route::post('/users/block/{id}', [UserController::class, 'block'])->name('users.block');
 	Route::post('/users/unblock/{id}', [UserController::class, 'unblock'])->name('users.unblock');
 	
-	Route::get('/orders/courier', [OrderController::class, 'courindex'])->name('courier.index');
-	Route::get('/orders/rest', [OrderController::class, 'restindex'])->name('rest.index');
+	Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+	Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
+	Route::put('/users/changepassword/{id}', [UserController::class, 'changePassword'])->name('users.changepass');
 
 });
+
+// Accessible to restaurants only
+// Accessible to users only
+// Accessible to couriers only
+// Accessible to admins only
+// Accessible by authenticated user of any role

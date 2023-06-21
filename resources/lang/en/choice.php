@@ -8,4 +8,5 @@ return [
 	'view_orders_rest' => 'Take a look at pending or preparing orders',
 	'view_rating_cour' => 'Take a look at your performance rating',
 	'view_rating_rest' => 'Take a look at your quality rating',
+	'make_profile_changes' => 'Change profile information',
 ];

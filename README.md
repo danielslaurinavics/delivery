@@ -27,8 +27,8 @@ The system will be implemented following an MVC paradigm. The system will be dis
 -	View for restaurants deleting existing dishes (used as confirmation prompt), done
 -	View for giving ratings about the order (the ratings for restaurants (quality) and couriers (performance) are separate), done
 -	Views for watching ratings (restaurants see their quality rating, couriers - their performance rating), done
--	View for editing user information,
--	View for admins to manage users,
+-	View for editing user information, partially complete
+-	View for admins to manage users, partially complete
 -	View for admins to block users (used as confirmation prompt), done
 #### Controllers:
 -	LocaleController with methods of setting up the application language during the session.
