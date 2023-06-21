@@ -32,12 +32,6 @@
 			</form>
 			<br>
 			
-			<form action="{{ route('dishes.search') }}" method="GET">
-				<label for="query">{{ __('dish.search') }}</label>
-				<input type="text" name="query" placeholder="{{ __('dish.sp') }}">
-				<button type="submit">{{ __('dish.search') }}</button>
-			</form>
-			
 			@if($dishes->isEmpty())
 				<p>{{ __('messages.emptytable') }}</p>
 			@else

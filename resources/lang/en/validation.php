@@ -1,5 +1,6 @@
 <?php
 return [
-    'required' => 'This field is required.',
-	'email' => 'This field must be a valid email address.'
+    'erequired' => 'The e-mail is missing!',
+	'prequired' => 'The password is missing!',
+	'email' => 'The value of the e-mail field should be a valid e-mail address!',
 ];

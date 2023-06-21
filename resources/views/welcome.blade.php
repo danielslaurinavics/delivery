@@ -64,24 +64,27 @@
 			</ul>
 		@else
 			<p>{{__('messages.pl_login')}}</p>
-				@if($errors->has('auth'))
-					<div class="alert alert-danger">{{ $errors->first('auth') }}</div>
-				@endif
+			@if ($errors->any())
+				<div class="alert alert-danger">
+					<ul>
+						@foreach ($errors->all() as $error)
+							<li>{{ $error }}</li>
+						@endforeach
+					</ul>
+				</div>
+			@endif
 			<form action="{{ route('login') }}" method="POST">
 				@csrf
 				<label for="email">{{__('messages.email')}}</label>
 				<input type="text" name="email">
-				@error('email')
-					<div class="alert alert-danger">{{ $message }}</div>
-				@enderror
 				<br>
 				<label for="password">{{__('messages.passw')}}</label>
 				<input type="password" name="password">
-				@error('password')
-					<div class="alert alert-danger">{{ $message }}</div>
-				@enderror
 				<br>
 				<button type="submit">{{__('messages.login')}}</button>
+			</form>
+			<form action="{{ route('register') }}" method="GET">
+				<button type="submit">{{ __('messages.register') }}</button>
 			</form>
 		@endif
 	</section>

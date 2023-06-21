@@ -7,6 +7,7 @@ use App\Http\Controllers\DishController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +24,11 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () { return view('welcome'); })->name('welcome');
 
 Route::middleware(['web'])->post('/switch-language', [LocaleController::class, 'switchLanguage'])->name('switchLanguage');
+
 Route::post('/login', [LoginController::class, 'login'])->name('login');
+
+Route::get('/register', [RegisterController::class, 'register'])->name('register');
+Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 
 // Accessible to authenticated users only
 Route::middleware(['auth'])->group(function () {

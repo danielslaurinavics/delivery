@@ -17,8 +17,9 @@ class DishController extends Controller
 		if (Gate::allows('view-dishes'))
 		{
 			$dishes = Dish::leftJoin('restaurants', 'dishes.maker', '=', 'restaurants.id')
-				   ->select('dishes.*', 'restaurants.name as maker_name')
-				   ->get();
+				->join('users', 'restaurants.manager', '=', 'users.id')
+				->where('users.is_blocked', false)
+				->select('dishes.*', 'restaurants.name as maker_name')->get();
 			return view('search_dish', ['dishes' => $dishes]);
 		}
 		else abort(403);
@@ -31,11 +32,12 @@ class DishController extends Controller
 			$query = $request->input('query');
 
 			$dishes = Dish::leftJoin('restaurants', 'dishes.maker', '=', 'restaurants.id')
+				->join('users', 'restaurants.manager', '=', 'users.id')
+				->where('users.is_blocked', false)
 				->select('dishes.*', 'restaurants.name as maker_name')
 				->when($query, function ($queryBuilder) use ($query) {
 					$queryBuilder->where('dishes.name', 'LIKE', '%' . $query . '%');
-				})
-				->get();
+				})->get();
 
 			return view('search_dish', ['dishes' => $dishes, 'query' => $query]);
 		}

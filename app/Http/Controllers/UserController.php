@@ -150,7 +150,7 @@ class UserController extends Controller
 		{
 			$user = User::findOrFail($id);
 			
-			if ($user->role === 'courier' || $userr->role === 'user')
+			if ($user->role === 'courier' || $user->role === 'user')
 			{
 			
 			$request->validate([

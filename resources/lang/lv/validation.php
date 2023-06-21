@@ -1,5 +1,6 @@
 <?php
 return [
-    'required' => 'Laukā ir obligāti jābūt vērtībai.',
-	'email' => 'Lauka vērtība ir obligāti jābūt e-pasta adresei.'
+    'erequired' => 'E-pasta laukā ir obligāti jābūt vērtībai!',
+	'prequired' => 'Paroles laukā obligāti jābūt vērtībai!',
+	'email' => 'E-pasta lauka vērtībai ir jābūt korektai e-pasta adresei!',
 ];
