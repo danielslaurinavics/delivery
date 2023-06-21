@@ -25,7 +25,8 @@ The system will be implemented following an MVC paradigm. The system will be dis
 -	View for restaurants adding new dishes,
 -	View for restaurants editing existing dishes,
 -	View for restaurants deleting existing dishes (used as confirmation prompt),
--	View for giving ratings about the order (the ratings for restaurants and couriers are separate),
+-	View for giving ratings about the order (the ratings for restaurants (quality) and couriers (performance) are separate),
+-	Views for watching ratings (restaurants see their quality rating, couriers - their performance rating),
 -	View for editing user information,
 -	View for admins to manage users,
 -	View for admins to block users (used as confirmation prompt),
@@ -33,7 +34,7 @@ The system will be implemented following an MVC paradigm. The system will be dis
 -	LocaleController with methods of setting up the application language during the session.
 -	DishController with methods for retrieving and showing list of dishes, creating and storing new dishes, returning a list of dishes filtered by search string in name of the dish.
 -	OrderController with methods for retrieving and showing list of orders, creating and storing new orders, updating the order status, returning a list of pending orders to restaurants.
--	CourierController with methods of retrieving and showing list of orders ready for delivery.
+-	CourierController with methods of retrieving and showing list of orders ready for delivery or en route, but being delivered by the courier user.
 -	RatingController with methods of assigning ratings to the order which is complete.
 -	UserController with methods of editind/blocking users, changing roles of users, as well as creating restaurants and assigning them to a user, whose role is Restaurant.
 -	Laravel standard RegisterController and LoginController.
@@ -49,18 +50,20 @@ The system supports a number of user roles – (registered) user, restaurant, co
 -	Viewing pending orders for a particular restaurant,
 -	Viewing the information about the order,
 -	Changing the order status to mark that the order is being prepared/given to delivery,
+-	Viewing their performance (restaurant rating).
 #### Courier:
 -	Viewing orders, which are ready for delivery,
 -	Selecting orders which will be delivered,
--	Changing the order status to mark that the order is on its way/has been delivered.
+-	Changing the order status to mark that the order is on its way/has been delivered,
+-	Viewing their performance (courier rating).
 #### Administrators:
 -	Block users:
-		- Administrators can't block administrators,
-		- Blocking a user will block access to any site's services,
-		- Blocking a restaurant user will delete all orders, which are not handed to delivery,
-			- Dishes from a blocked restaurant will not be available for ordering,
-		- Blocking a courier will set all undelivered orders to status 'ready for delivery' (handed back to restaurant),
-			- If the restaurant is blocked as well, then the order is deleted,
+	- Administrators can't block administrators,
+	- Blocking a user will block access to any site's services,
+	- Blocking a restaurant user will delete all orders, which are not handed to delivery,
+	  - Dishes from a blocked restaurant will not be available for ordering,
+	- Blocking a courier will set all undelivered orders to status 'ready for delivery' (handed back to restaurant),
+	  - If the restaurant is blocked as well, then the order is deleted,
 -	Change user's role (initially registered users have a user role, the admin assigns the other roles)
 -	Create a new restaurant and assign a restaurant account to it.
 -	Viewing information about the orders.
