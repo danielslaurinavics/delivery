@@ -78,8 +78,13 @@
 						</form>
 						@endif
 						
-						
-						
+						<form action="{{ route('users.chrole', $user->id) }}" method="GET">
+							@if ($user->role != 'admin' && $user->role != 'restaurant')
+								<button type="submit">{{ __('users.chrole') }}
+							@else
+								<button type="submit" disabled>{{ __('users.chrole') }}</button>
+							@endif
+						</form>
 						</td>
 					<tr>
 					@endforeach

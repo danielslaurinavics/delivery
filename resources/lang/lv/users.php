@@ -54,4 +54,19 @@ return [
 	'cp' => 'Apstipriniet paroli',
 	'return' => 'Atgriezties',
 	'namereq' => 'Lauks "Vārds" nevar būt tukšs!',
+	
+	'chrolet' => 'Mainīt lomu lietotājam :name',
+	'usercode' => 'Lietotāja ID - :id',
+	'currrole' => 'Pašreizējā loma - :role',
+	'chroleq' => 'Uz kuru lomu jūs vēlaties mainīt?',
+	'cannotchange' => 'Nav iespējams mainīt lomu šim lietotājam!',
+	
+	'crrest' => 'Izveidot restorānu',
+	'crreste' => 'Tā kā jūs vēlaties piešķirt Restorāna lomu lietotājam :name, 
+	jums ir jāizveido restorāns',
+	'crname' => 'Restorāna nosaukums',
+	'craddr' => 'Restorāna adrese',
+	'crman' => 'Restorāna konta īpašnieks',
+	'crconf' => 'Veicot šo darbību, šis konts mainīs lomu uz "Restorāns". Šo darbību nevarēs atsaukt!',
+	'crconf2' => 'Vai jūs vēlaties turpināt?',
 ];

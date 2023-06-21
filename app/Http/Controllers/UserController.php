@@ -72,23 +72,70 @@ class UserController extends Controller
 		return redirect()->route('users.index');
 	}
 	
-	//public function assignToCourier (string $id)
-	//{
-		//$user = User::findOrFail($id)
-		//$user->role = 'courier';
-		//$user->save();
-	//}
+	public function chrole (string $id)
+	{
+		$userr = User::findOrFail($id);
+		if ($userr->role !== 'admin' && $userr->role !== 'restaurant') return view('chrole_user', ['userr'=>$userr]);
+		else redirect()->back();
+	}
 	
-	//public function assignToRestaurant (Request $request)
-	//{
-		//$user = User::findOrFail($id)
+	public function assignToUser (string $id)
+	{
+		$user = User::findOrFail($id);
+		if ($user->role = 'courier')
+		{
+			$user->role = 'user';
+			$user->save();
+		}
+		return redirect()->route('users.index');
+	}
+	
+	public function assignToCourier (string $id)
+	{
+		$user = User::findOrFail($id);
+		if ($user->role = 'user')
+		{
+			$user->role = 'courier';
+			$user->save();
+		}
+		return redirect()->route('users.index');
+	}
+
+	
+	public function crtRest (string $id)
+	{
+		$userr = User::findOrFail($id);
+		if ($userr->role === 'courier' || $userr->role === 'user') return view('create_restaurant', ['userr' => $userr]);
+		else redirect()->route('users.index');
+	}
+	
+	public function assignToRestaurant (Request $request, string $id)
+	{
+		$user = User::findOrFail($id);
 		
-		//$restaurant = new Restaurant();
-		//$restaurant->name = ;
-		//$restaurant->address = ;
-		//$restaurant->manager = ;
+		if ($user->role === 'courier' || $userr->role === 'user')
+		{
 		
-	//}
+		$request->validate([
+			'name' => 'required',
+			'address' => 'required',
+		],[
+			'name' => __('users.rnamereq'),
+			'address' => __('users.radrreq'),
+		]);
+		
+		$rest = new Restaurant();
+		$rest->name = $request->input('name');
+		$rest->address = $request->input('address');
+		$rest->manager = $user->id;
+		$rest->save();
+		
+		$user->role = 'restaurant';
+		$user->save();
+		}
+		
+		return redirect()->route('users.index');
+	}
 	
 	public function edit (string $id)
 	{
