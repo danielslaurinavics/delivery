@@ -59,21 +59,12 @@ Route::middleware(['auth'])->group(function () {
 	Route::post('/users/block/{id}', [UserController::class, 'block'])->name('users.block');
 	Route::post('/users/unblock/{id}', [UserController::class, 'unblock'])->name('users.unblock');
 	Route::get('/users/change-role/{id}', [UserController::class, 'chrole'])->name('users.chrole');
-	
 	Route::put('/users/change-role/user/{id}', [UserController::class, 'assignToUser'])->name('users.assuser');
 	Route::put('/users/change-role/courier/{id}', [UserController::class, 'assignToCourier'])->name('users.asscour');
-	
 	Route::get('/create-restaurant/{id}',[UserController::class, 'crtRest'])->name('users.crtrest');
 	Route::post('/create-restaurant/{id}',[UserController::class, 'assignToRestaurant'])->name('users.assrest');
-	
+
 	Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
 	Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
 	Route::post('/users/{id}/changepassword', [UserController::class, 'changePassword'])->name('users.changepass');
-
 });
-
-// Accessible to restaurants only
-// Accessible to users only
-// Accessible to couriers only
-// Accessible to admins only
-// Accessible by authenticated user of any role

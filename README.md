@@ -92,6 +92,5 @@ The system supports a number of user roles – (registered) user, restaurant, co
 	- Restaurants and administrators can't be assigned to a different role,
 	- It's not possible to assign to administrator,
 	- When a user is assigned to a Restaurant role, a new restaurant is established.
--	Viewing information about the orders.
 ### User Authentication
 For the user authentication, it is only possible to use the local registration system.

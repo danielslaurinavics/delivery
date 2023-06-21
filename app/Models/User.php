@@ -48,4 +48,25 @@ class User extends Authenticatable
 	{
 		return $this->hasMany(Restaurant::class, 'manager');
 	}
+	
+	public function isUser()
+	{
+		return $this->role === 'admin';
+	}
+	
+	public function isCourier()
+	{
+		return $this->role === 'admin';
+	}
+	
+	public function isRestaurant()
+	{
+		return $this->role === 'admin';
+	}
+	
+	public function isAdmin()
+	{
+		return $this->role === 'admin';
+	}
+	
 }
