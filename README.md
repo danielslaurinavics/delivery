@@ -1,6 +1,7 @@
+# This is an experimental PHP + Laravel web application. Please, do not use it!
 ### Team of Developers
 There is a one student participating in the development of the system:
--	Daniels Laurinavičs, dl22029 (design, business logic development, user interface design, programming of controllers and models.
+-	Daniels Laurinavičs (design, business logic development, user interface design, programming of controllers and models.
 ### Development Environment
 It is planned to develop this system in PHP 8.2 environment using Laravel 10 library. It is planned to use MySQL database for data storage. The code will be stored in the GitHub system.
 ### Main Functionality
